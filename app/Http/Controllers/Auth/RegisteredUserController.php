@@ -49,7 +49,7 @@ class RegisteredUserController extends Controller
         if (Auth::user()->role == "admin"){
             return redirect("admin/dashboard");
         }else{
-            return redirect(RouteServiceProvider::HOME);
+            return redirect("");
         };
     }
 

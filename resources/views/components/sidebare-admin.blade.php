@@ -13,7 +13,7 @@
 <body>
    <div class="container">
       <aside>
-           
+
          <div class="top">
            <div class="logo">
              <h2>C <span class="danger">BABAR</span> </h2>
@@ -27,7 +27,7 @@
          <!-- end top -->
           <div class="sidebar">
 
-          
+
            <x-navLink href="/admin/users" :active="request()->is('admin/users')">
               <span class="material-symbols-sharp">person_outline </span>
               <h3>Users</h3>
@@ -44,9 +44,9 @@
               <span class="material-symbols-sharp">receipt_long </span>
               <h3>Products</h3>
            </x-navLink>
-           <x-navLink href="/home" :active="request()->is('reports')">
+           <x-navLink href="/admin/categories" :active="request()->is('admin/categories')">
               <span class="material-symbols-sharp">report_gmailerrorred </span>
-              <h3>Reports</h3>
+              <h3>Categories</h3>
            </x-navLink>
            <x-navLink href="/home" :active="request()->is('settings')">
               <span class="material-symbols-sharp">settings </span>
@@ -57,7 +57,11 @@
               <span class="material-symbols-sharp">add </span>
               <h3>Add Product</h3>
            </x-navLink>
-           
+              <x-navLink href="/admin/create-category" :active="request()->is('admin/create-category')">
+              <span class="material-symbols-sharp">add </span>
+              <h3>Add Cateogry</h3>
+           </x-navLink>
+
            <a href="{{route('logout')}}">
               <form method="POST" action="{{ route('logout') }}">
                 @csrf
@@ -70,14 +74,14 @@
                 </x-dropdown-link>
             </form>
            </a>
-             
+
 
 
           </div>
 
       </aside>
 
-        
+
       {{ $slot}}
 
 

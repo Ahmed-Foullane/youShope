@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\ProductController;
@@ -33,6 +34,12 @@ Route::middleware(['auth', 'admin'])->group(function () {
         Route::put("update-product/{id}", [ProductController::class, 'update']);
         Route::get("product/{id}/delete", [ProductController::class, 'delete']);
         Route::get("user/{id}/delete", [DashboardController::class, 'delete']);
+        Route::get("categories", [CategoryController::class, "index"])->name("admin.categories");
+        Route::get("create-category", [CategoryController::class, "create"])->name("admin.category.create");
+        Route::post("store-category", [CategoryController::class, "store"]);
+        Route::get("category/{id}/edit", [CategoryController::class, "edit"]);
+        Route::put("update-category/{id}", [CategoryController::class, "update"]);
+        Route::get("category/{id}/delete", [CategoryController::class, "destroy"]);
     });
 });
 
